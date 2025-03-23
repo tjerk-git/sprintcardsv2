@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Sprint Cards</title>
+
+        <link rel="stylesheet" href="src/styles.css" />
+        <script defer src="src/script.js"></script>
+    </head>
+    <body>
+        <select id="category_selector">
+            <option value="digitalDesign">Interaction Design</option>
+            <option value="audioDesign">Audio Design</option>
+            <option value="motionDesign">Motion Design</option>
+            <option value="brandDesign">Brand Design</option>
+        </select>
+
+        <audio
+            id="scramble"
+            src="assets/sounds/no-coin.mp3"
+            preload="auto"
+        ></audio>
+        <audio
+            id="scramble-no-coin"
+            src="assets/sounds/bloeper.mp3"
+            preload="auto"
+        ></audio>
+
+        <div class="container">
+            <div class="pill product">
+                <div class="text"></div>
+            </div>
+            <div class="pill audience"></div>
+            <div class="pill chaos"></div>
+        </div>
+    </body>
+</html>
+
+<button id="go">Scramble bitch</button>
