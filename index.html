@@ -3,38 +3,89 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta property="og:title" content="Sprint cards" />
+        <meta property="og:site_name" content="Sprint cards" />
+        <meta property="og:url" content="https://sprint.cards" />
+        <meta property="og:description" content="generate design challenges" />
+        <meta property="og:image" content="/assets/img/og_image.png" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+
         <title>Sprint Cards</title>
 
         <link rel="stylesheet" href="src/styles.css" />
+        <link rel="icon" href="/assets/img/favicon.png" />
         <script defer src="src/script.js"></script>
     </head>
     <body>
-        <select id="category_selector">
-            <option value="digitalDesign">Interaction Design</option>
-            <option value="audioDesign">Audio Design</option>
-            <option value="motionDesign">Motion Design</option>
-            <option value="brandDesign">Brand Design</option>
-        </select>
+        <header>
+            <img src="/assets/img/logo.svg" />
+            <h1>Sprint cards</h1>
 
-        <audio
-            id="scramble"
-            src="assets/sounds/no-coin.mp3"
-            preload="auto"
-        ></audio>
-        <audio
-            id="scramble-no-coin"
-            src="assets/sounds/bloeper.mp3"
-            preload="auto"
-        ></audio>
+            <button id="muteAudioButton">
+                <img id="mute" src="/assets/img/mute.svg" />
+                <img id="unmute" src="/assets/img/unmute.svg" />
+                Audio
+            </button>
+        </header>
+        <main>
+            <audio
+                id="scramble"
+                src="assets/sounds/no-coin.mp3"
+                preload="auto"
+            ></audio>
+            <audio
+                id="scramble-no-coin"
+                src="assets/sounds/bloeper.mp3"
+                preload="auto"
+            ></audio>
 
-        <div class="container">
-            <div class="pill product">
-                <div class="text"></div>
+            <div class="container">
+                <h1 class="introduction">
+                    <span>Select a</span>
+                    <select id="category_selector">
+                        <option value="">CATEGORY</option>
+                        <option value="digitalDesign">
+                            Interaction Design
+                        </option>
+                        <option value="audioDesign">Audio Design</option>
+                        <option value="motionDesign">Motion Design</option>
+                        <option value="brandDesign">Brand Design</option>
+                    </select>
+                    <span>to begin</span>
+                </h1>
+
+                <div class="pill grey">Create a</div>
+                <div class="pill platform">
+                    <div class="platform-text" data-id="0">_blank</div>
+                </div>
+                <div class="pill grey">For</div>
+                <div class="pill audience">
+                    <div class="audience-text" data-id="0">_blank</div>
+                </div>
+                <div class="pill chaos">
+                    <div class="chaos-text" data-id="0">_blank</div>
+                </div>
             </div>
-            <div class="pill audience"></div>
-            <div class="pill chaos"></div>
-        </div>
+
+            <div class="buttonContainer">
+                <button id="platformButton" class="platform">
+                    <img src="/assets/img/shuffle.svg" />
+                    Shuffle thing
+                </button>
+                <button id="audienceButton" class="audience">
+                    <img src="/assets/img/shuffle.svg" />
+                    Shuffle audiences
+                </button>
+                <button id="chaosButton" class="chaosColor">
+                    <img src="/assets/img/shuffle.svg" />
+                    Shuffle chaos
+                </button>
+                <button id="chaosEnableButton" class="">
+                    <img src="/assets/img/add.svg" />
+                    Add chaos
+                </button>
+            </div>
+        </main>
     </body>
 </html>
-
-<button id="go">Scramble bitch</button>

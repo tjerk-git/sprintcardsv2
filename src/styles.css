@@ -1,0 +1,289 @@
+@font-face {
+    font-family: "ClashGrotesk-Variable";
+    src:
+        url("../assets/fonts/ClashGrotesk-Variable.woff2") format("woff2"),
+        url("../assets/fonts/ClashGrotesk-Variable.woff") format("woff"),
+        url("../assets/fonts/ClashGrotesk-Variable.ttf") format("truetype");
+    font-weight: 200 700;
+    font-display: swap;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "ClashGrotesk-Extralight";
+    src:
+        url("../assets/fonts/ClashGrotesk-Extralight.woff2") format("woff2"),
+        url("../assets/fonts/ClashGrotesk-Extralight.woff") format("woff"),
+        url("../assets/fonts/ClashGrotesk-Extralight.ttf") format("truetype");
+    font-weight: 200;
+    font-display: swap;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "ClashGrotesk-Light";
+    src:
+        url("../assets/fonts/ClashGrotesk-Light.woff2") format("woff2"),
+        url("../assets/fonts/ClashGrotesk-Light.woff") format("woff"),
+        url("../assets/fonts/ClashGrotesk-Light.ttf") format("truetype");
+    font-weight: 300;
+    font-display: swap;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "ClashGrotesk-Regular";
+    src:
+        url("../assets/fonts/ClashGrotesk-Regular.woff2") format("woff2"),
+        url("../assets/fonts/ClashGrotesk-Regular.woff") format("woff"),
+        url("../assets/fonts/ClashGrotesk-Regular.ttf") format("truetype");
+    font-weight: 400;
+    font-display: swap;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "ClashGrotesk-Medium";
+    src:
+        url("../assets/fonts/ClashGrotesk-Medium.woff2") format("woff2"),
+        url("../assets/fonts/ClashGrotesk-Medium.woff") format("woff"),
+        url("../assets/fonts/ClashGrotesk-Medium.ttf") format("truetype");
+    font-weight: 500;
+    font-display: swap;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "ClashGrotesk-Semibold";
+    src:
+        url("../assets/fonts/ClashGrotesk-Semibold.woff2") format("woff2"),
+        url("../assets/fonts/ClashGrotesk-Semibold.woff") format("woff"),
+        url("../assets/fonts/ClashGrotesk-Semibold.ttf") format("truetype");
+    font-weight: 600;
+    font-display: swap;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "ClashGrotesk-Bold";
+    src:
+        url("../assets/fonts/ClashGrotesk-Bold.woff2") format("woff2"),
+        url("../assets/fonts/ClashGrotesk-Bold.woff") format("woff"),
+        url("../assets/fonts/ClashGrotesk-Bold.ttf") format("truetype");
+    font-weight: 700;
+    font-display: swap;
+    font-style: normal;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --green-color: #5dc893;
+    --purple-color: #a091ff;
+    --yellow-color: #e2c15b;
+    --bg-color: #dddbd4;
+    --black-color: #1c1c1c;
+    --grey-color: #c2c0b7;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--black-color);
+    font-family: "ClashGrotesk-Medium";
+    line-height: 1;
+    font-weight: normal;
+}
+
+.shuffler {
+    border-radius: 65px;
+    text-transform: uppercase;
+    padding: 32px 48px;
+    display: flex;
+    min-width: 150px;
+    align-items: center;
+    justify-content: center;
+    font-size: 3.2em;
+}
+
+.filler {
+    background: #c2c0b7;
+    border-radius: 65px;
+    text-transform: uppercase;
+    padding: 32px 48px;
+    display: flex;
+    min-width: 180px;
+    align-items: center;
+    justify-content: center;
+    font-size: 3.2em;
+}
+
+.container {
+    min-width: 45%;
+    align-content: stretch;
+    flex-wrap: wrap;
+    flex-direction: row;
+    display: flex;
+}
+
+.pill {
+    border-radius: 65px;
+    text-transform: uppercase;
+    padding: 32px 48px;
+    display: flex;
+    min-width: 180px;
+    align-items: center;
+    justify-content: center;
+    font-size: 3.2em;
+    background-color: var(--grey-color);
+}
+
+.platform {
+    background-color: var(--green-color);
+}
+
+.audience {
+    background-color: var(--purple-color);
+}
+
+.chaos {
+    display: none;
+    background-color: var(--yellow-color);
+}
+
+.chaosColor {
+    background-color: var(--yellow-color);
+}
+
+main {
+    margin: 0 auto;
+    width: 90vw;
+}
+
+.introduction {
+    font-size: 4rem;
+    text-transform: uppercase;
+    width: 100%;
+    margin: 24px 0;
+}
+
+#chaosEnableButton {
+    position: relative;
+    animation: chaosShake 0.5s infinite;
+    background: linear-gradient(15deg, var(--yellow-color), var(--black-color));
+    background-size: 200% 200%;
+    animation:
+        chaosShake 0.2s infinite,
+        gradientShift 1s ease infinite;
+}
+
+@keyframes chaosShake {
+    0%,
+    100% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+    25% {
+        transform: translate(-2px, 2px) rotate(-1deg);
+    }
+    50% {
+        transform: translate(2px, -2px) rotate(1deg);
+    }
+    75% {
+        transform: translate(-2px, -2px) rotate(1deg);
+    }
+}
+
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+header {
+    padding: 1rem;
+    border-bottom: 2px solid var(--black-color);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+header h1 {
+    text-transform: uppercase;
+}
+
+header h2 {
+    text-transform: uppercase;
+    font-size: 1rem;
+}
+
+#unmute {
+    display: none;
+}
+
+#category_selector {
+    padding: 12px 2px;
+    font-size: 1.2em;
+    border: 2px solid var(--black-color);
+    border-radius: 8px;
+    background-color: white;
+    cursor: pointer;
+    font-family: "ClashGrotesk-Medium";
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23131313%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 12px;
+    transition: all 0.2s ease;
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    .shuffler,
+    .filler,
+    .pill {
+        padding: 16px 24px;
+        font-size: 1.4em;
+        min-width: 120px;
+        word-wrap: break-word;
+    }
+
+    .container {
+        min-width: 100%;
+    }
+}
+
+button {
+    padding: 1rem;
+    border: none;
+    border-radius: 8px;
+    background-color: var(--black-color);
+    color: white;
+    font-family: "ClashGrotesk-Medium";
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    text-transform: uppercase;
+}
+
+.buttonContainer {
+    display: flex;
+    gap: 1rem;
+    margin-top: 5rem;
+    opacity: 0;
+    transition: opacity 4s ease;
+}
