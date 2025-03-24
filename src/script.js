@@ -55,6 +55,12 @@ muteAudioButton.addEventListener("click", function () {
 categorySelector.addEventListener("change", function () {
   selectedTheme = categorySelector.value;
 
+  if (selectedTheme == "") {
+    return;
+  }
+
+  categorySelector.classList.add("category_muted");
+
   document.querySelectorAll(".introduction span").forEach((span) => {
     span.style.opacity = "0";
     span.style.transition = "opacity 0.5s";
@@ -160,20 +166,12 @@ chaosButton.addEventListener("click", function () {
 });
 
 chaosEnableButton.addEventListener("click", function () {
-  chaosEnabled = !chaosEnabled;
+  chaosEnabled = true;
 
   if (chaosEnabled) {
-    chaosButton.style.display = "block";
+    chaosEnableButton.style.display = "none";
+    chaosButton.style.display = "flex";
     document.querySelector(".chaos").style.display = "block";
     displayElement("chaos");
-  }
-
-  if (!chaosEnabled) {
-    chaosEnableButton.innerHTML = "Chaos Disabled";
-    document.querySelector(".chaos-text").innerHTML = "";
-    document.querySelector(".chaos").style.display = "none";
-    chaosButton.style.display = "none";
-  } else {
-    chaosEnableButton.innerHTML = "Chaos Enabled";
   }
 });
