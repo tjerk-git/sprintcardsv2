@@ -22,8 +22,10 @@ const muteAudioButton = document.getElementById("muteAudioButton");
 
 const menuButtons = document.querySelectorAll(".menuButton");
 
+const uxdesignButton = document.getElementById("uxdesignButton");
+
 let chaosEnabled = false;
-let mute = false;
+let mute = true;
 
 let platformId = document
   .querySelector(".platform-text")
@@ -37,11 +39,17 @@ let challengeData;
 // Fetch the data and assign it to challengeData
 (async () => {
   challengeData = await fetchChallenges();
-  console.log(challengeData); // Verify the data is fetched
+
+  uxdesignButton.classList.add("active");
+
+  displayElement("platform");
+  displayElement("audience");
 })();
 
 muteAudioButton.addEventListener("click", function () {
   mute = !mute;
+
+  scrambleAudio.volume = mute ? 0 : 1;
 
   if (mute) {
     document.getElementById("mute").style.display = "none";
@@ -56,15 +64,8 @@ menuButtons.forEach((button) => {
   button.addEventListener("click", function () {
     selectedTheme = button.getAttribute("data-category");
 
-    document.querySelector(".introduction").style.opacity = 0;
-    document.querySelector(".introduction").style.transition =
-      "opacity 1s ease-in-out";
-
-    if (button.classList.contains("active")) {
-      button.classList.remove("active");
-    } else {
-      button.classList.add("active");
-    }
+    removeActiveButtons();
+    button.classList.add("active");
 
     if (selectedTheme == "") {
       return;
@@ -78,6 +79,20 @@ menuButtons.forEach((button) => {
     }
   });
 });
+
+function removeActiveButton() {
+  menuButtons.forEach((button) => {
+    if (button.classList.contains("active")) {
+      button.classList.remove("active");
+    }
+  });
+}
+
+function removeActiveButtons() {
+  menuButtons.forEach((button) => {
+    removeActiveButton(button);
+  });
+}
 
 function scramble(word, callback) {
   let strarray = word.split("");
@@ -157,14 +172,17 @@ function displayElement(type) {
 }
 
 platformButton.addEventListener("click", function () {
+  mute = false;
   displayElement("platform");
 });
 
 audienceButton.addEventListener("click", function () {
+  mute = false;
   displayElement("audience");
 });
 
 chaosButton.addEventListener("click", function () {
+  mute = false;
   displayElement("chaos");
 });
 
@@ -175,6 +193,7 @@ chaosEnableButton.addEventListener("click", function () {
     chaosEnableButton.style.display = "none";
     chaosButton.style.display = "flex";
     document.querySelector(".chaos").style.display = "flex";
+    mute = false;
     displayElement("chaos");
   }
 });
