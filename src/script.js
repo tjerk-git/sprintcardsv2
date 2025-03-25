@@ -1,16 +1,3 @@
-async function fetchChallenges() {
-  try {
-    const response = await fetch("/assets/data/challenges.json");
-    if (!response.ok) {
-      throw new Error("Network response was not ok " + response.statusText);
-    }
-    const data = await response.json();
-    return data; // Return the fetched data
-  } catch (error) {
-    console.error("There was a problem with the fetch operation:", error);
-  }
-}
-
 const fps = 30;
 const platformButton = document.getElementById("platformButton");
 const audienceButton = document.getElementById("audienceButton");
@@ -18,23 +5,30 @@ const chaosButton = document.getElementById("chaosButton");
 const chaosEnableButton = document.getElementById("chaosEnableButton");
 const scrambleAudio = document.getElementById("scramble");
 const scrambleNoCoinAudio = document.getElementById("scramble-no-coin");
-const muteAudioButton = document.getElementById("muteAudioButton");
-
 const menuButtons = document.querySelectorAll(".menuButton");
-
 const uxdesignButton = document.getElementById("uxdesignButton");
-
+let selectedTheme = "digitalDesign";
+let challengeData;
 let chaosEnabled = false;
-let mute = true;
 
 let platformId = document
   .querySelector(".platform-text")
   .getAttribute("data-id");
 
-chaosButton.style.display = "none";
+async function fetchChallenges() {
+  try {
+    const response = await fetch("/assets/data/challenges.json");
+    if (!response.ok) {
+      throw new Error("Network response was not ok " + response.statusText);
+    }
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error("There was a problem with the fetch operation:", error);
+  }
+}
 
-let selectedTheme = "digitalDesign";
-let challengeData;
+chaosButton.style.display = "none";
 
 // Fetch the data and assign it to challengeData
 (async () => {
@@ -45,20 +39,6 @@ let challengeData;
   displayElement("platform");
   displayElement("audience");
 })();
-
-muteAudioButton.addEventListener("click", function () {
-  mute = !mute;
-
-  scrambleAudio.volume = mute ? 0 : 1;
-
-  if (mute) {
-    document.getElementById("mute").style.display = "none";
-    document.getElementById("unmute").style.display = "block";
-  } else {
-    document.getElementById("mute").style.display = "block";
-    document.getElementById("unmute").style.display = "none";
-  }
-});
 
 menuButtons.forEach((button) => {
   button.addEventListener("click", function () {
@@ -136,11 +116,6 @@ function displayElement(type) {
       chaos: "chaosModifiers",
     };
 
-    if (!mute) {
-      scrambleAudio.currentTime = 0;
-      scrambleAudio.play();
-    }
-
     const elementType = typeMap[type];
     let randomIndex = Math.floor(
       Math.random() * challengeData[selectedTheme][elementType].length,
@@ -172,17 +147,14 @@ function displayElement(type) {
 }
 
 platformButton.addEventListener("click", function () {
-  mute = false;
   displayElement("platform");
 });
 
 audienceButton.addEventListener("click", function () {
-  mute = false;
   displayElement("audience");
 });
 
 chaosButton.addEventListener("click", function () {
-  mute = false;
   displayElement("chaos");
 });
 
@@ -193,7 +165,6 @@ chaosEnableButton.addEventListener("click", function () {
     chaosEnableButton.style.display = "none";
     chaosButton.style.display = "flex";
     document.querySelector(".chaos").style.display = "flex";
-    mute = false;
     displayElement("chaos");
   }
 });

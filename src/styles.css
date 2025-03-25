@@ -88,7 +88,7 @@
     --purple-color: #a091ff;
     --yellow-color: #e2c15b;
     --bg-color: #dddbd4;
-    --black-color: #1c1c1c;
+    --black-color: #424242;
     --grey-color: #c2c0b7;
     --pink-color: #ff69b4;
 }
@@ -264,6 +264,11 @@ button {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
+        gap: 1rem;
+    }
+
+    footer {
+        position: static;
         gap: 1rem;
     }
 
