@@ -156,39 +156,7 @@ main {
 
 #chaosEnableButton {
     position: relative;
-    background: linear-gradient(15deg, var(--yellow-color), var(--black-color));
-    background-size: 200% 200%;
-    animation:
-        chaosShake 0.2s infinite,
-        gradientShift 1s ease infinite;
-}
-
-@keyframes chaosShake {
-    0%,
-    100% {
-        transform: translate(0, 0);
-    }
-    25% {
-        transform: translate(-2px, 2px);
-    }
-    50% {
-        transform: translate(2px, -2px);
-    }
-    75% {
-        transform: translate(-2px, -2px);
-    }
-}
-
-@keyframes gradientShift {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
+    background: var(--black-color);
 }
 
 header {
@@ -198,6 +166,24 @@ header {
     align-items: center;
     justify-content: space-between;
     gap: 1rem;
+}
+
+.menuButton {
+    background-color: var(--black-color);
+    color: white;
+    border-radius: 10px;
+    padding: 1rem;
+    font-size: 1.2rem;
+}
+
+.menuButton:hover {
+    background-color: white;
+    color: var(--black-color);
+}
+
+.active {
+    background-color: white;
+    color: var(--black-color);
 }
 
 header h1 {
@@ -230,26 +216,6 @@ a {
     color: var(--green-color);
 }
 
-#category_selector {
-    padding: 12px 2px;
-    font-size: 1.2em;
-    border: 2px solid var(--black-color);
-    border-radius: 8px;
-    background-color: white;
-    cursor: pointer;
-    font-family: "ClashGrotesk-Medium";
-    appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    transition: all 0.2s ease;
-    width: 100%;
-}
-
-#category_selector:hover {
-    background-color: var(--black-color) !important;
-    color: white !important;
-}
-
 .category_muted {
     background-color: transparent !important;
     border: none !important;
@@ -274,8 +240,6 @@ button {
     display: flex;
     gap: 1rem;
     margin-top: 5rem;
-    opacity: 0;
-    transition: opacity 4s ease;
     margin-bottom: 1rem;
 }
 
@@ -284,13 +248,24 @@ button {
         flex-direction: column;
     }
 
+    header {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
     .shuffler,
     .filler,
     .pill {
-        padding: 16px 24px;
+        padding: 1rem;
+        border-radius: 50px;
         font-size: 1.4em;
         min-width: 120px;
         word-wrap: break-word;
+    }
+
+    .pill img {
+        width: 32px;
     }
 
     .introduction {

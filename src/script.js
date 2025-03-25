@@ -18,8 +18,9 @@ const chaosButton = document.getElementById("chaosButton");
 const chaosEnableButton = document.getElementById("chaosEnableButton");
 const scrambleAudio = document.getElementById("scramble");
 const scrambleNoCoinAudio = document.getElementById("scramble-no-coin");
-const categorySelector = document.getElementById("category_selector");
 const muteAudioButton = document.getElementById("muteAudioButton");
+
+const menuButtons = document.querySelectorAll(".menuButton");
 
 let chaosEnabled = false;
 let mute = false;
@@ -51,29 +52,31 @@ muteAudioButton.addEventListener("click", function () {
   }
 });
 
-// Add event listener to category selector
-categorySelector.addEventListener("change", function () {
-  selectedTheme = categorySelector.value;
+menuButtons.forEach((button) => {
+  button.addEventListener("click", function () {
+    selectedTheme = button.getAttribute("data-category");
 
-  if (selectedTheme == "") {
-    return;
-  }
+    document.querySelector(".introduction").style.opacity = 0;
+    document.querySelector(".introduction").style.transition =
+      "opacity 1s ease-in-out";
 
-  categorySelector.classList.add("category_muted");
+    if (button.classList.contains("active")) {
+      button.classList.remove("active");
+    } else {
+      button.classList.add("active");
+    }
 
-  document.querySelectorAll(".introduction span").forEach((span) => {
-    span.style.opacity = "0";
-    span.style.transition = "opacity 0.5s";
+    if (selectedTheme == "") {
+      return;
+    }
+
+    displayElement("platform");
+    displayElement("audience");
+
+    if (chaosEnabled) {
+      displayElement("chaos");
+    }
   });
-
-  document.querySelector(".buttonContainer").style.opacity = "1";
-
-  displayElement("platform");
-  displayElement("audience");
-
-  if (chaosEnabled) {
-    displayElement("chaos");
-  }
 });
 
 function scramble(word, callback) {
@@ -171,7 +174,7 @@ chaosEnableButton.addEventListener("click", function () {
   if (chaosEnabled) {
     chaosEnableButton.style.display = "none";
     chaosButton.style.display = "flex";
-    document.querySelector(".chaos").style.display = "block";
+    document.querySelector(".chaos").style.display = "flex";
     displayElement("chaos");
   }
 });

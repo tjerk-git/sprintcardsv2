@@ -20,7 +20,19 @@
     <body>
         <header>
             <img src="/assets/img/logo.svg" />
-            <h1>Sprint cards</h1>
+
+            <button class="menuButton" data-category="digitalDesign">
+                Interaction Design
+            </button>
+            <button class="menuButton" data-category="audioDesign">
+                Audio Design
+            </button>
+            <button class="menuButton" data-category="motionDesign">
+                Motion Design
+            </button>
+            <button class="menuButton" data-category="brandDesign">
+                Branding Design
+            </button>
 
             <button id="muteAudioButton">
                 <img id="mute" src="/assets/img/mute.svg" />
@@ -41,46 +53,31 @@
             ></audio>
 
             <div class="container">
-                <h1 class="introduction">
-                    <span>Select a</span>
-                    <select id="category_selector">
-                        <option value="">CATEGORY</option>
-                        <option value="digitalDesign">
-                            Interaction Design
-                        </option>
-                        <option value="audioDesign">Audio Design</option>
-                        <option value="motionDesign">Motion Design</option>
-                        <option value="brandDesign">Brand Design</option>
-                    </select>
-                    <span>to begin</span>
-                </h1>
+                <h1 class="introduction">Select a category to get started</h1>
 
                 <div class="pill grey">Create a</div>
                 <div class="pill platform">
                     <div class="platform-text" data-id="0">_blank</div>
+                    <button id="platformButton" class="platform">
+                        <img src="/assets/img/shuffle.svg" />
+                    </button>
                 </div>
                 <div class="pill grey">For</div>
                 <div class="pill audience">
                     <div class="audience-text" data-id="0">_blank</div>
+                    <button id="audienceButton" class="audience">
+                        <img src="/assets/img/shuffle.svg" />
+                    </button>
                 </div>
                 <div class="pill chaos">
                     <div class="chaos-text" data-id="0">_blank</div>
+                    <button id="chaosButton" class="chaosColor">
+                        <img src="/assets/img/shuffle.svg" />
+                    </button>
                 </div>
             </div>
 
             <div class="buttonContainer">
-                <button id="platformButton" class="platform">
-                    <img src="/assets/img/shuffle.svg" />
-                    Shuffle thing
-                </button>
-                <button id="audienceButton" class="audience">
-                    <img src="/assets/img/shuffle.svg" />
-                    Shuffle audiences
-                </button>
-                <button id="chaosButton" class="chaosColor">
-                    <img src="/assets/img/shuffle.svg" />
-                    Shuffle chaos
-                </button>
                 <button id="chaosEnableButton" class="">
                     <img src="/assets/img/add.svg" />
                     Add chaos
