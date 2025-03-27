@@ -216,5 +216,60 @@
       { "id": 41, "title": "In the Style of De Stijl" },
       { "id": 42, "title": "With Extreme Minimalism" }
     ]
+  },
+  "webDevelopment": {
+    "platforms": [
+      { "id": 1, "title": "Cat fanpage" },
+      { "id": 2, "title": "Blog platform" },
+      { "id": 3, "title": "Band website" },
+      { "id": 4, "title": "Local news website" },
+      { "id": 5, "title": "An Intranet" },
+      { "id": 6, "title": "Educational Platform" },
+      { "id": 7, "title": "Weird sport community website" },
+      { "id": 8, "title": "Government Website" },
+      { "id": 9, "title": "Non-profit Organization Website" },
+      { "id": 10, "title": "Corporate Website" },
+      { "id": 11, "title": "Forum Website" },
+      { "id": 12, "title": "Event Management Site" },
+      { "id": 13, "title": "Real Estate Platform" },
+      { "id": 14, "title": "Festival website" },
+      { "id": 15, "title": "Coffee order application" }
+    ],
+    "audiences": [
+      { "id": 16, "title": "Tech-savvy Millennials" },
+      { "id": 17, "title": "Small Business Owners" },
+      { "id": 18, "title": "Environmental Activists" },
+      { "id": 19, "title": "Remote Workers" },
+      { "id": 20, "title": "Fitness Enthusiasts" },
+      { "id": 21, "title": "Pet Owners" },
+      { "id": 22, "title": "Food Lovers" },
+      { "id": 23, "title": "Artists and Creatives" },
+      { "id": 24, "title": "Senior Citizens" },
+      { "id": 25, "title": "Parents of Young Children" },
+      { "id": 26, "title": "Gamers" },
+      { "id": 27, "title": "Travelers" },
+      { "id": 28, "title": "Students" },
+      { "id": 29, "title": "Healthcare Professionals" },
+      { "id": 30, "title": "Investors" },
+      { "id": 31, "title": "DIY Enthusiasts" }
+    ],
+    "chaosModifiers": [
+      { "id": 32, "title": "Without Using JavaScript" },
+      { "id": 33, "title": "Using Only CSS Animations" },
+      { "id": 34, "title": "Incorporating AR Elements" },
+      { "id": 35, "title": "Designed for Slow Internet Connections" },
+      { "id": 36, "title": "With a Dark Mode Only" },
+      { "id": 37, "title": "Using Only SVG Graphics" },
+      { "id": 38, "title": "With Accessibility as Top Priority" },
+      { "id": 39, "title": "Incorporating Voice Commands" },
+      { "id": 40, "title": "Without Using Any Images" },
+      { "id": 41, "title": "With a Retro 90s Design" },
+      { "id": 42, "title": "Using Only Open-Source Tools" },
+      { "id": 43, "title": "In HTML CANVAS" },
+      { "id": 44, "title": "Incorporating Gamification Elements" },
+      { "id": 45, "title": "With Extreme Personalization" },
+      { "id": 46, "title": "Using Only HTML" },
+      { "id": 47, "title": "Using some form of Localstorage" }
+    ]
   }
 }
