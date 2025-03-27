@@ -138,7 +138,6 @@ footer {
 }
 
 .chaos {
-    display: none;
     background-color: var(--yellow-color);
 }
 
@@ -157,11 +156,6 @@ main {
     text-transform: uppercase;
     width: 100%;
     margin: 24px 0;
-}
-
-#chaosEnableButton {
-    position: relative;
-    background: var(--black-color);
 }
 
 header {

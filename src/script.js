@@ -2,14 +2,11 @@ const fps = 30;
 const platformButton = document.getElementById("platformButton");
 const audienceButton = document.getElementById("audienceButton");
 const chaosButton = document.getElementById("chaosButton");
-const chaosEnableButton = document.getElementById("chaosEnableButton");
-const scrambleAudio = document.getElementById("scramble");
-const scrambleNoCoinAudio = document.getElementById("scramble-no-coin");
+
 const menuButtons = document.querySelectorAll(".menuButton");
 const uxdesignButton = document.getElementById("uxdesignButton");
 let selectedTheme = "digitalDesign";
 let challengeData;
-let chaosEnabled = false;
 
 let platformId = document
   .querySelector(".platform-text")
@@ -28,8 +25,6 @@ async function fetchChallenges() {
   }
 }
 
-chaosButton.style.display = "none";
-
 // Fetch the data and assign it to challengeData
 (async () => {
   challengeData = await fetchChallenges();
@@ -38,6 +33,7 @@ chaosButton.style.display = "none";
 
   displayElement("platform");
   displayElement("audience");
+  displayElement("chaos");
 })();
 
 menuButtons.forEach((button) => {
@@ -53,10 +49,7 @@ menuButtons.forEach((button) => {
 
     displayElement("platform");
     displayElement("audience");
-
-    if (chaosEnabled) {
-      displayElement("chaos");
-    }
+    displayElement("chaos");
   });
 });
 
@@ -121,13 +114,13 @@ function displayElement(type) {
       Math.random() * challengeData[selectedTheme][elementType].length,
     );
 
-    // Special handling for platform to avoid repeats
-    if (type === "platform" && randomIndex === platformId) {
-      randomIndex = randomIndex + 1;
-      if (randomIndex >= challengeData[selectedTheme][elementType].length) {
-        randomIndex = 0;
-      }
-    }
+    // // Special handling for platform to avoid repeats
+    // if (type === "platform" && randomIndex === platformId) {
+    //   randomIndex = randomIndex + 1;
+    //   if (randomIndex >= challengeData[selectedTheme][elementType].length) {
+    //     randomIndex = 0;
+    //   }
+    // }
 
     let randomWord =
       challengeData[selectedTheme][elementType][randomIndex].title;
@@ -156,15 +149,4 @@ audienceButton.addEventListener("click", function () {
 
 chaosButton.addEventListener("click", function () {
   displayElement("chaos");
-});
-
-chaosEnableButton.addEventListener("click", function () {
-  chaosEnabled = true;
-
-  if (chaosEnabled) {
-    chaosEnableButton.style.display = "none";
-    chaosButton.style.display = "flex";
-    document.querySelector(".chaos").style.display = "flex";
-    displayElement("chaos");
-  }
 });
