@@ -138,15 +138,18 @@ function displayElement(type) {
     textElement.innerHTML = randomWord;
 
     const createText = document.getElementById("createText");
-    if (
-      randomWord
-        .charAt(0)
-        .toLowerCase()
-        .match(/[aeiou]/)
-    ) {
-      createText.innerHTML = "Create an";
-    } else {
-      createText.innerHTML = "Create a";
+
+    if (elementType === "platforms") {
+      if (
+        randomWord
+          .charAt(0)
+          .toLowerCase()
+          .match(/[aeiou]/)
+      ) {
+        createText.innerHTML = "Create an";
+      } else {
+        createText.innerHTML = "Create a";
+      }
     }
 
     let id = challengeData[selectedTheme][elementType][randomIndex].id;
