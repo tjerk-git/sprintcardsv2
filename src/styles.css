@@ -250,10 +250,6 @@ button {
         flex-direction: column;
     }
 
-    #muteAudioButton {
-        margin-left: 0;
-    }
-
     header {
         display: flex;
         flex-direction: column;
@@ -262,6 +258,7 @@ button {
     }
 
     footer {
+        margin-top: 2rem;
         position: static;
         gap: 1rem;
     }
