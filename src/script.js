@@ -7,10 +7,17 @@ const menuButtons = document.querySelectorAll(".menuButton");
 const uxdesignButton = document.getElementById("uxdesignButton");
 let selectedTheme = "digitalDesign";
 let challengeData;
+let id = 1;
 
 let platformId = document
   .querySelector(".platform-text")
   .getAttribute("data-id");
+
+let audienceId = document
+  .querySelector(".audience-text")
+  .getAttribute("data-id");
+
+let chaosId = document.querySelector(".chaos-text").getAttribute("data-id");
 
 async function fetchChallenges() {
   try {
@@ -114,25 +121,40 @@ function displayElement(type) {
       Math.random() * challengeData[selectedTheme][elementType].length,
     );
 
-    // // Special handling for platform to avoid repeats
-    // if (type === "platform" && randomIndex === platformId) {
-    //   randomIndex = randomIndex + 1;
-    //   if (randomIndex >= challengeData[selectedTheme][elementType].length) {
-    //     randomIndex = 0;
-    //   }
-    // }
+    if (
+      randomIndex === platformId ||
+      randomIndex === audienceId ||
+      randomIndex === chaosId
+    ) {
+      randomIndex = randomIndex + 1;
+      if (randomIndex >= challengeData[selectedTheme][elementType].length) {
+        randomIndex = 0;
+      }
+    }
 
     let randomWord =
       challengeData[selectedTheme][elementType][randomIndex].title;
     const textElement = document.querySelector(`.${type}-text`);
     textElement.innerHTML = randomWord;
 
+    const createText = document.getElementById("createText");
+    if (
+      randomWord
+        .charAt(0)
+        .toLowerCase()
+        .match(/[aeiou]/)
+    ) {
+      createText.innerHTML = "Create an";
+    } else {
+      createText.innerHTML = "Create a";
+    }
+
+    let id = challengeData[selectedTheme][elementType][randomIndex].id;
+    console.log(id);
+    textElement.setAttribute("data-id", id);
+
     scramble(randomWord, function (scrambledWord) {
       textElement.innerHTML = scrambledWord;
-      if (type === "platform") {
-        const id = challengeData[selectedTheme][elementType][randomIndex].id;
-        textElement.setAttribute("data-id", id);
-      }
     });
   } else {
     console.log("Challenge data is not yet available.");
