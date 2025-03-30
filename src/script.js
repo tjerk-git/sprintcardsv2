@@ -78,7 +78,7 @@ function scramble(word, callback) {
   let strarray = word.split("");
   let originalWord = word;
 
-  const duration = 3600;
+  const duration = 2000;
   const startTime = performance.now();
   const endTime = startTime + duration;
 
