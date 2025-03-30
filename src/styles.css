@@ -103,6 +103,7 @@ body {
 
 .container {
     min-width: 45%;
+    max-width: 50vw;
     align-content: stretch;
     flex-wrap: wrap;
     flex-direction: row;
