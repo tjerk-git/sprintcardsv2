@@ -219,6 +219,13 @@ a {
     color: var(--green-color);
 }
 
+.platform-text,
+.audience-text, 
+.chaos-text {
+    flex: 1;
+    text-align: center;
+}
+
 .category_muted {
     background-color: transparent !important;
     border: none !important;
@@ -267,15 +274,28 @@ button {
     .shuffler,
     .filler,
     .pill {
-        padding: 1rem;
-        border-radius: 50px;
+        padding: 1rem 1.5rem;
+        border-radius: 25px;
         font-size: 1.2rem;
         word-wrap: break-word;
         justify-content: flex-start;
+        min-height: 50px;
+    }
+
+    .platform-text,
+    .audience-text,
+    .chaos-text {
+        flex: 1;
+        text-align: left;
+        line-height: 1.3;
+        word-break: break-word;
+        overflow-wrap: break-word;
     }
 
     .pill img {
         width: 32px;
+        flex-shrink: 0;
+        margin-left: 0.5rem;
     }
 
     .introduction {
@@ -291,5 +311,6 @@ button {
         min-width: 100%;
         flex-direction: column;
         text-align: left;
+        gap: 1rem;
     }
 }
